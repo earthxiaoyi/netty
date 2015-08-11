@@ -10,7 +10,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 public class NettyServer {
 	
 	public static void main(String args[]) throws Exception{
-		int port = 8080;
+		int port = 1122;
 		new NettyServer().bind(port);
 	}
 	

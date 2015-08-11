@@ -47,7 +47,7 @@ public class ServerHandler extends ChannelHandlerAdapter {
 		byte[] msgByte = new byte[buf.readableBytes()];
 		buf.readBytes(msgByte);
 		*/
-		System.out.println("消息为："+new String(msg.toString().getBytes(),"UTF-8"));
+		System.out.println("消息为："+msg.toString());
 		
 		ctx.writeAndFlush("your is connected server~\n\r");
 	}

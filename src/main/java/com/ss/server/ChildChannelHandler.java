@@ -1,5 +1,7 @@
 package com.ss.server;
 
+import java.nio.charset.Charset;
+
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.LineBasedFrameDecoder;
@@ -18,11 +20,13 @@ public class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
 		//基于换行符号
 		ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
 		//解码器 转String
-		ch.pipeline().addLast(new StringDecoder());
+		ch.pipeline().addLast(new StringDecoder(Charset.forName("GBK")));
 		//编码string
-		ch.pipeline().addLast(new StringEncoder());
+		ch.pipeline().addLast(new StringEncoder(Charset.forName("GBK")));
 		//管道中添加接收数据实现的方法
 		ch.pipeline().addLast(new ServerHandler());
 	}
+	
+	
 
 }
